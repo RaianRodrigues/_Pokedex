@@ -4,6 +4,8 @@ import { mode } from "@chakra-ui/theme-tools";
 
 import "@fontsource/poppins"
 
+import backImage2 from "../../../../resources/backImage2.png";
+
 const customTheme = extendTheme({
 
   fonts: {
@@ -28,34 +30,64 @@ const customTheme = extendTheme({
 
       'html, body': {
 
-        fontFamily: "body", // Use a fonte Poppins para o corpo e cabeçalhos
+        fontFamily: "body",
 
-        background: "#000",
+        width: "100%",
 
-        width:"100%",
+        height: "100%",
 
-        height:"100%",
+        position: "relative",
+      },
+
+      body: {
+
+        backgroundImage: backImage2,
+
+        backgroundSize: "cover",
+
+        position: "relative",
+
+        '&::before': {
+
+          content: '""',
+
+          position: "fixed",
+
+          top: 0,
+
+          left: 0,
+
+          width: "100%",
+
+          height: "100%",
+
+          background: "rgba(0, 0, 0, 0.2)",
+
+          backdropFilter: "brightness(0.8) blur(3px)",
+
+        },
+
       },
 
       '::-webkit-scrollbar': {
 
-        width: "0.25rem", // Largura da scrollbar
+        width: "0.20rem",
 
-        backgroundColor: "black", // Cor de fundo da scrollbar
+        backgroundColor: "#111",
 
       },
 
       '::-webkit-scrollbar-thumb': {
 
-        backgroundColor: mode("blue.500", "gray.800")(props), // Cor do thumb (altere para a cor desejada)
+        backgroundColor: mode("gray.600", "gray.800")(props),
 
-        borderRadius: "10px", // Border radius de 10px
+        borderRadius: "10px",
 
       },
 
       '*': {
 
-        scrollbarColor: mode("blue.500 black", "gray.800 gray.700")(props), // Cor da thumb e da track
+        scrollbarColor: mode("blue.500 black", "gray.800 gray.700")(props),
 
       },
 

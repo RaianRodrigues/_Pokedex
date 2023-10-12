@@ -1,4 +1,4 @@
-import PokedexGrid from "./components/PokedexGrid";
+import PokedexGrid from "./components/PokemonGrid";
 
 const App: React.FC = () => {
 
