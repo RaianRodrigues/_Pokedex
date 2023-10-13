@@ -73,7 +73,7 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
 
       justifySelf={"center"}
 
-      bg="rgba(124, 124, 124, 0.25)"
+      bg="rgba(110, 110, 110, 0.25)"
 
       backdropFilter="blur(5px) saturate(150%)"
 

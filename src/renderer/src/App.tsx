@@ -1,10 +1,16 @@
-import PokedexGrid from "./components/PokemonGrid";
+import Content from './components/Content';
 
-const App: React.FC = () => {
+const App = () => {
 
 	return (
-		<PokedexGrid />
-	)
+
+		<>
+
+			<Content />
+
+		</>
+
+	);
 
 };
 

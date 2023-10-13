@@ -8,11 +8,9 @@ import { Pokemon } from '@renderer/types/types';
 
 import PokemonCard from './PokemonCard';
 
-// import Layout from './Layout';
-
 const getPokemonList = async () => {
 
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=100');
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=50');
 
     const results = response.data.results;
 
@@ -56,7 +54,7 @@ const getPokemonList = async () => {
 
 };
 
-const PokedexGrid: React.FC = () => {
+const PokemonGrid: React.FC = () => {
 
     const { data: pokemonList = [], isLoading } = useQuery(['pokemonList'], getPokemonList);
 
@@ -79,6 +77,7 @@ const PokedexGrid: React.FC = () => {
                     transform="translate(-50%, -50%)"
 
                     color='#fff'
+
                 />
 
             ) : (
@@ -99,4 +98,4 @@ const PokedexGrid: React.FC = () => {
 
 };
 
-export default PokedexGrid;
+export default PokemonGrid;

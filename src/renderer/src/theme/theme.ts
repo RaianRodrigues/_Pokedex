@@ -4,7 +4,7 @@ import { mode } from "@chakra-ui/theme-tools";
 
 import "@fontsource/poppins"
 
-import backImage2 from "../../../../resources/backImage2.png";
+import backImage1 from "../../../../resources/backImage1.png";
 
 const customTheme = extendTheme({
 
@@ -25,7 +25,6 @@ const customTheme = extendTheme({
   },
 
   styles: {
-
     global: (props: any) => ({
 
       'html, body': {
@@ -36,36 +35,39 @@ const customTheme = extendTheme({
 
         height: "100%",
 
-        position: "relative",
-      },
-
-      body: {
-
-        backgroundImage: backImage2,
+        backgroundImage: backImage1,
 
         backgroundSize: "cover",
 
         position: "relative",
 
-        '&::before': {
+      },
 
-          content: '""',
+      body: {
 
-          position: "fixed",
+        zIndex: 0,
 
-          top: 0,
+      },
 
-          left: 0,
+      'body::before': {
 
-          width: "100%",
+        content: '""',
 
-          height: "100%",
+        position: "fixed",
 
-          background: "rgba(0, 0, 0, 0.2)",
+        top: 0,
 
-          backdropFilter: "brightness(0.8) blur(3px)",
+        left: 0,
 
-        },
+        width: "100%",
+
+        height: "100%",
+
+        background: "rgba(0, 0, 0, 0.2)",
+
+        backdropFilter: "brightness(0.5) blur(1px)",
+
+        zIndex: -1,
 
       },
 
