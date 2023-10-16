@@ -8,6 +8,8 @@ import PokeMenu from './PokeMenu';
 
 import GettingStarted from './GettingStarted';
 
+import PokemonTypes from './PokemonTypes';
+
 const Content: React.FC = () => {
 
   const [selectedContent, setSelectedContent] = useState<string | null>(null);
@@ -27,6 +29,8 @@ const Content: React.FC = () => {
       {selectedContent === 'pokemonGrid' ? <PokemonGrid /> : null}
 
       {selectedContent === 'pokemonSearch' ? <PokemonSearch /> : null}
+
+      {selectedContent === 'pokemonTypes' ? <PokemonTypes /> : null}
 
       {selectedContent === null ? <GettingStarted onGettingStartedClick={() => handleMenuItemClick('pokemonGrid')} /> : null}
 

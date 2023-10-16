@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Input, Button, Spinner, Center, Box, HStack, Heading } from '@chakra-ui/react';
+import { Input, Spinner, Center, Box, HStack, Heading, IconButton } from '@chakra-ui/react';
 import axios from 'axios';
 import { Pokemon } from '@renderer/types/types';
 import PokemonCard from './PokemonCard';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 const PokemonSearch: React.FC = () => {
 
@@ -84,11 +85,22 @@ const PokemonSearch: React.FC = () => {
 
                 />
 
-                <Button onClick={handleSearch} colorScheme="teal">
+                <IconButton
 
-                    Pesquisar
+                    cursor={"pointer"}
 
-                </Button>
+                    aria-label="Search"
+
+                    py="25px"
+
+                    px="15px"
+
+                    onClick={handleSearch}
+
+                    icon={<AiOutlineSearch color="#fff" size="1.5rem" />}
+
+                    colorScheme="teal"
+                />
 
             </HStack>
 

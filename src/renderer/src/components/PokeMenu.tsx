@@ -114,13 +114,13 @@ const PokeMenu: React.FC<PokeMenuProps> = ({ onMenuItemClick }) => {
 
                 cursor={"pointer"}
 
-                aria-label="Nature"
+                aria-label="Types"
 
                 p="20px"
 
                 icon={<BiLeaf color="#fff" size="1.5rem" />}
 
-                onClick={() => onMenuItemClick('pokemonNature')}
+                onClick={() => onMenuItemClick('pokemonTypes')}
 
                 bg="#9ccfd85A"
 

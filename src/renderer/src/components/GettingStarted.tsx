@@ -1,6 +1,10 @@
-import { Center, Heading, Button, Text } from "@chakra-ui/react";
+import { Center, Heading, Button } from "@chakra-ui/react";
+
 import { motion, useAnimation } from "framer-motion";
+
 import { useEffect, useState } from "react";
+
+import backImage1 from "../../../../resources/backImage1.png";
 
 interface GettingStartedProps {
 
@@ -16,13 +20,15 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 
 	const controls = useAnimation();
 
-	const HeadingText = "PokedexApp";
+	const HeadingText = "_PokedexApp";
 
 	useEffect(() => {
 
 		let currentIndex = 0;
 
-		const typingInterval = setInterval(() => {
+		let timeoutId: NodeJS.Timeout | undefined;
+
+		const typeNextCharacter = () => {
 
 			if (currentIndex <= HeadingText.length) {
 
@@ -30,9 +36,9 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 
 				currentIndex++;
 
-			} else {
+				timeoutId = setTimeout(typeNextCharacter, 150);
 
-				clearInterval(typingInterval);
+			} else {
 
 				setAnimationComplete(true);
 
@@ -40,15 +46,32 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 
 			}
 
-		}, 150);
+		};
 
-		return () => clearInterval(typingInterval);
+		typeNextCharacter();
+
+		return () => {
+
+			if (timeoutId) {
+
+				clearTimeout(timeoutId);
+
+			}
+
+		};
 
 	}, [controls]);
 
 	return (
 
-		<Center h={"100vh"} w={"100vw"} flexDirection="column" gap={"5rem"}>
+		<Center
+			h={"100vh"}
+			w={"100vw"}
+			flexDirection="column"
+			gap={"5rem"}
+			backgroundImage={backImage1}
+			backgroundSize={"cover"}
+		>
 
 			<Heading
 
@@ -57,7 +80,6 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 					position: "relative",
 
 					_after: {
-
 						content: '""',
 
 						position: "absolute",
@@ -83,6 +105,7 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 							},
 
 						},
+
 					},
 
 				}}
@@ -113,7 +136,9 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 
 			>
 
-				<Text>facere minus rem. Repudiandae aperiam, voluptatum totam dolorem odit esse tenetur.</Text>
+				<Heading size={"sm"} color={"#fff"}>
+					A pokedex app made with React js + Electron js + Chakra ui
+				</Heading>
 
 			</motion.div>
 
@@ -152,6 +177,7 @@ const GettingStarted: React.FC<GettingStartedProps> = ({ onGettingStartedClick }
 					onClick={onGettingStartedClick}
 
 				>
+
 					Getting Started
 
 				</Button>
