@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Flex, IconButton } from '@chakra-ui/react';
+import { Divider, Flex, IconButton } from '@chakra-ui/react';
 
 import { TbPokeball } from 'react-icons/tb';
 
 import { AiOutlineSearch } from 'react-icons/ai';
+
+import { BiLeaf } from 'react-icons/bi';
 
 interface PokeMenuProps {
 
@@ -24,7 +26,7 @@ const PokeMenu: React.FC<PokeMenuProps> = ({ onMenuItemClick }) => {
 
             bg="rgba(24, 24, 24, 0.80)"
 
-            backdropFilter="blur(5px) saturate(150%)"
+            backdropFilter="blur(5px) saturate(100%)"
 
             justifyContent="space-around"
 
@@ -42,13 +44,15 @@ const PokeMenu: React.FC<PokeMenuProps> = ({ onMenuItemClick }) => {
 
             zIndex="9999"
 
-            boxShadow={"0 5px 7px rgba(180, 180, 180, 0.2)"}
+            boxShadow={"0 2px 4px rgba(180, 180, 180, 0.2)"}
 
         >
 
             <IconButton
 
-                aria-label="PokeIcon"
+                cursor={"pointer"}
+
+                aria-label="Grid"
 
                 p="20px"
 
@@ -56,17 +60,28 @@ const PokeMenu: React.FC<PokeMenuProps> = ({ onMenuItemClick }) => {
 
                 onClick={() => onMenuItemClick('pokemonGrid')}
 
-                bg="#7777771A"
+                bg="#eb6f925A"
 
                 _hover={{
 
-                    bg: '#77777733',
+                    bg: '#eb6f928A',
 
-                    color: '#fff',
+                    marginTop: "-5px",
 
+                    boxShadow: "0 0 5px rgba(235, 111, 146, 0.2)"
                 }}
             />
+
+            <Divider
+                orientation='vertical'
+                bg={"#fff"}
+                h={"3px"}
+                w={"2px"}
+            />
+
             <IconButton
+
+                cursor={"pointer"}
 
                 aria-label="Search"
 
@@ -76,16 +91,48 @@ const PokeMenu: React.FC<PokeMenuProps> = ({ onMenuItemClick }) => {
 
                 onClick={() => onMenuItemClick('pokemonSearch')}
 
-                bg="#7777771A"
+                bg="#f6c1775A"
 
                 _hover={{
 
-                    bg: '#77777733',
+                    bg: '#f6c1778A',
 
-                    color: '#fff',
+                    marginTop: "-5px",
+
+                    boxShadow: "0 0 5px rgba(246, 193, 119, 0.2)"
+                }}
+            />
+
+            <Divider
+                orientation='vertical'
+                bg={"#fff"}
+                h={"3px"}
+                w={"2px"}
+            />
+
+            <IconButton
+
+                cursor={"pointer"}
+
+                aria-label="Nature"
+
+                p="20px"
+
+                icon={<BiLeaf color="#fff" size="1.5rem" />}
+
+                onClick={() => onMenuItemClick('pokemonNature')}
+
+                bg="#9ccfd85A"
+
+                _hover={{
+
+                    bg: '#9ccfd88A',
+
+                    marginTop: "-5px",
+
+                    boxShadow: "0 0 5px rgba(156, 207, 216, 0.2)"
 
                 }}
-
             />
 
         </Flex>

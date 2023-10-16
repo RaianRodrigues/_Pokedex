@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import PokemonGrid from './PokemonGrid';
 
@@ -6,7 +6,7 @@ import PokemonSearch from './PokemonSearch';
 
 import PokeMenu from './PokeMenu';
 
-import { Heading } from '@chakra-ui/react';
+import GettingStarted from './GettingStarted';
 
 const Content: React.FC = () => {
 
@@ -18,38 +18,17 @@ const Content: React.FC = () => {
 
   };
 
-  useEffect(() => {
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-
-      if (e.ctrlKey && e.key === 'l' && selectedContent === null) {
-
-        setSelectedContent('oi');
-      }
-
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-
-      document.removeEventListener('keydown', handleKeyDown);
-
-    };
-
-  }, [selectedContent]);
-
   return (
 
     <>
 
-      <PokeMenu onMenuItemClick={handleMenuItemClick} />
+      {selectedContent !== null && <PokeMenu onMenuItemClick={handleMenuItemClick} />}
 
       {selectedContent === 'pokemonGrid' ? <PokemonGrid /> : null}
 
       {selectedContent === 'pokemonSearch' ? <PokemonSearch /> : null}
 
-      {selectedContent === 'oi' ? <Heading position="absolute" top="50%" left="50%" transform="translate(-50%, -50%)" color={"#fff"}>LEVI É GAY 💀</Heading> : null}
+      {selectedContent === null ? <GettingStarted onGettingStartedClick={() => handleMenuItemClick('pokemonGrid')} /> : null}
 
     </>
 

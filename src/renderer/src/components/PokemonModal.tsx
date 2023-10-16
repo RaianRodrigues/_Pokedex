@@ -15,7 +15,15 @@ import {
 
 import { Pokemon } from '@renderer/types/types';
 
-const PokemonModal: React.FC<{ pokemon: Pokemon; isOpen: boolean; onClose: () => void, cardBG?: string }> = ({
+const PokemonModal: React.FC<{
+
+    pokemon: Pokemon;
+
+    isOpen: boolean;
+
+    onClose: () => void, cardBG?: string
+
+}> = ({
 
     pokemon,
 
@@ -25,63 +33,63 @@ const PokemonModal: React.FC<{ pokemon: Pokemon; isOpen: boolean; onClose: () =>
 
 }) => {
 
-    return (
+        return (
 
-        <Modal isOpen={isOpen} onClose={onClose} size="sm">
+            <Modal isOpen={isOpen} onClose={onClose} size="sm">
 
-            <ModalOverlay bg="rgba(0, 0, 0, 0.5)" />
+                <ModalOverlay />
 
-            <ModalContent
+                <ModalContent
 
-                bg="rgba(36, 37, 42, 0.85)"
+                    bg="rgba(36, 37, 42, 1)"
 
-                boxShadow="0px 0px 20px 10px rgba(36, 37, 42, 0.2)"
+                    boxShadow="0px 0px 20px 10px rgba(36, 37, 42, 0.52)"
 
-                borderRadius="5px"
+                    borderRadius="5px"
 
-            >
-                <ModalCloseButton color="#fff" />
+                >
+                    <ModalCloseButton color="#fff" />
 
-                <ModalBody>
+                    <ModalBody>
 
-                    <Center flexDir="column">
+                        <Center flexDir="column">
 
-                        <Image src={pokemon.image} alt={pokemon.name} />
+                            <Image src={pokemon.image} alt={pokemon.name} />
 
-                        <VStack align="start" spacing={2}>
+                            <VStack align="start" spacing={2}>
 
-                            <Text color="#fff">Nome: {pokemon.name}</Text>
+                                <Text color="#fff">Nome: {pokemon.name}</Text>
 
-                            <Text color="#fff">Peso: {pokemon.weight}</Text>
+                                <Text color="#fff">Peso: {pokemon.weight}</Text>
 
-                            <Text color="#fff">Stats:</Text>
+                                <Text color="#fff">Stats:</Text>
 
-                            <UnorderedList>
+                                <UnorderedList>
 
-                                {Object.entries(pokemon.stats).map(([stat, value]) => (
+                                    {Object.entries(pokemon.stats).map(([stat, value]) => (
 
-                                    <ListItem key={stat} color="#fff" letterSpacing="1px">
+                                        <ListItem key={stat} color="#fff" letterSpacing="1px">
 
-                                        {stat.toUpperCase()}: {value}
+                                            {stat.toUpperCase()}: {value}
 
-                                    </ListItem>
+                                        </ListItem>
 
-                                ))}
+                                    ))}
 
-                            </UnorderedList>
+                                </UnorderedList>
 
-                        </VStack>
+                            </VStack>
 
-                    </Center>
+                        </Center>
 
-                </ModalBody>
+                    </ModalBody>
 
-            </ModalContent>
+                </ModalContent>
 
-        </Modal>
+            </Modal>
 
-    );
+        );
 
-};
+    };
 
 export default PokemonModal;

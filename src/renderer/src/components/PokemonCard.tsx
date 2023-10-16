@@ -73,7 +73,7 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
 
       justifySelf={"center"}
 
-      bg="rgba(110, 110, 110, 0.25)"
+      bg="rgba( 31, 29, 46,1)"
 
       backdropFilter="blur(5px) saturate(150%)"
 
@@ -92,6 +92,8 @@ const PokemonCard: React.FC<{ pokemon: Pokemon }> = ({ pokemon }) => {
       borderRadius={"5px"}
 
       onClick={openModal}
+
+      cursor={"pointer"}
 
     >
 

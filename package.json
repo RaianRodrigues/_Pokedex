@@ -2,9 +2,9 @@
   "name": "pokedex",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "An Electron application with React and TypeScript",
+  "description": "An pokedex app using Electron js | React js",
   "main": "./out/main/index.js",
-  "author": "example.com",
+  "author": "Sunny",
   "homepage": "https://www.electronjs.org",
   "scripts": {
     "format": "prettier --write .",

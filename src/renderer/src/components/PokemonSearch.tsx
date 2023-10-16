@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input, Button, SimpleGrid, Spinner, Text, Center, Box, HStack, Heading } from '@chakra-ui/react';
+import { Input, Button, Spinner, Center, Box, HStack, Heading } from '@chakra-ui/react';
 import axios from 'axios';
 import { Pokemon } from '@renderer/types/types';
 import PokemonCard from './PokemonCard';
