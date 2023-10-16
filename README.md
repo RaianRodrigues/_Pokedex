@@ -1,6 +1,6 @@
 # pokedex
 
-An Electron application with React and TypeScript
+An Electron application with React js + Electron Js + Chakra ui
 
 ## Recommended IDE Setup
 
