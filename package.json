@@ -2,9 +2,9 @@
   "name": "pokedex",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "An Electron application with React and TypeScript",
+  "description": "An pokedex app using Electron js | React js",
   "main": "./out/main/index.js",
-  "author": "example.com",
+  "author": "Sunny",
   "homepage": "https://www.electronjs.org",
   "scripts": {
     "format": "prettier --write .",
@@ -30,7 +30,8 @@
     "@tanstack/react-query": "^4.36.1",
     "axios": "^1.5.1",
     "electron-updater": "^6.1.1",
-    "framer-motion": "^10.16.4"
+    "framer-motion": "^10.16.4",
+    "react-icons": "^4.11.0"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config-prettier": "^1.0.1",
