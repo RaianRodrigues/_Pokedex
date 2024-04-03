@@ -1,65 +1,18 @@
 import React, { useState } from 'react';
+
 import { Input, Spinner, Center, Box, HStack, Heading, IconButton } from '@chakra-ui/react';
-import axios from 'axios';
-import { Pokemon } from '@renderer/types/types';
-import PokemonCard from './PokemonCard';
+
 import { AiOutlineSearch } from 'react-icons/ai';
+
+import { usePokemonData } from '../hooks/usePokemonData';
+
+import PokemonCard from './PokemonCard';
 
 const PokemonSearch: React.FC = () => {
 
-    const [pokemonName, setpokemonName] = useState('');
+    const [pokemonName, setPokemonName] = useState('');
 
-    const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-
-    const [isLoading, setIsLoading] = useState(false);
-
-    const handleSearch = async () => {
-
-        setIsLoading(true);
-
-        try {
-
-            const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
-
-            const pokemonData = response.data;
-
-            const newPokemon: Pokemon = {
-
-                name: pokemonData.name,
-
-                image: pokemonData.sprites.front_default,
-
-                types: pokemonData.types.map((type: { type: { name: string } }) => type.type.name),
-
-                weight: pokemonData.weight,
-
-                stats: {
-
-                    attack: pokemonData.stats[1].base_stat,
-
-                    defense: pokemonData.stats[2].base_stat,
-
-                    speed: pokemonData.stats[5].base_stat,
-
-                    specialAttack: pokemonData.stats[3].base_stat,
-
-                    specialDefense: pokemonData.stats[4].base_stat,
-
-                },
-
-            };
-
-            setPokemon(newPokemon);
-
-        } catch (error) {
-
-            console.error('Erro ao buscar o Pokémon:', error);
-
-        }
-
-        setIsLoading(false);
-
-    };
+    const { isLoading, pokemon, searchPokemon } = usePokemonData();
 
     return (
 
@@ -73,9 +26,9 @@ const PokemonSearch: React.FC = () => {
 
                     value={pokemonName}
 
-                    onChange={(e) => setpokemonName(e.target.value)}
+                    onChange={(e) => setPokemonName(e.target.value)}
 
-                    placeholder="Nome do Pokémon"
+                    placeholder="Pokémon Name or ID"
 
                     color={"#fff"}
 
@@ -95,11 +48,12 @@ const PokemonSearch: React.FC = () => {
 
                     px="15px"
 
-                    onClick={handleSearch}
+                    onClick={() => searchPokemon(pokemonName)}
 
                     icon={<AiOutlineSearch color="#fff" size="1.5rem" />}
 
                     colorScheme="teal"
+
                 />
 
             </HStack>
@@ -115,7 +69,6 @@ const PokemonSearch: React.FC = () => {
                     <PokemonCard pokemon={pokemon} />
 
                 </Box>
-
 
             ) : null}
 
