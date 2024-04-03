@@ -24,6 +24,7 @@ const Content: React.FC = () => {
 
     <>
 
+    
       {selectedContent !== null && <PokeMenu onMenuItemClick={handleMenuItemClick} />}
 
       {selectedContent === 'pokemonGrid' ? <PokemonGrid /> : null}
